@@ -1,0 +1,68 @@
+{% extends 'chops/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="product-detail">
+    <div class="roww">
+        <div class="pro-img-container">
+            <img class="pro-img" src="{{ product.imageURL }}" alt="{{ product.name }}" />
+        </div>
+        <div class="secure-detail">
+    
+
+       
+        <div class="parallax-content section-xl text-md-left">
+            <h4 class="product-title">{{product.name}}</h4>
+                <div class="product-rating"><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
+                </div>
+                <div class="product-price-wrap">
+                <div class="product-price">₦{{product.price|floatformat:2}}</div>
+                </div>
+               <div>
+                
+                    <h6>{{ product.description }}</h6>
+                </div>
+                <!-- Additional product details -->
+                
+                
+                <div class="d-flex align-items-center mb-4 pt-2">
+                    <div class="input-group quantity mr-3" style="width: 130px;">
+                        <div class="input-group-btn">
+                                            <button class="btn btn-primary btn-minus"  >
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <input type="text" id="quantityInput_{{ product.id }}" name="quantity" data-product="{{ product.id }}" data-action="add" class="form-control bg-secondary text-center" value="1">
+                        <div class="input-group-btn">
+                            <button  class="btn btn-primary btn-plus ">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button data-product={{product.id}} data-action="add"  class="btn btn-primary px-3 update-cart"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
+                                </div>
+            </div>
+            
+       
+       
+        </div>
+    
+
+        
+
+    </div>
+
+
+
+    <p><a href="{% url 'chops' %}">&#8592; Back</a></p>
+</div>
+
+
+
+
+
+
+{% endblock %}
+
